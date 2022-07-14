@@ -35,4 +35,14 @@ public class CustomerController {
 		return ResponseEntity.ok(customerService.getCustomerByMobile(customerByMobileRequest.getMobileNum()));
 	}
 	
+	/*
+	 * @PostMapping("/getCustomerByMobile") public
+	 * ResponseEntity<GetCustomerByMobileResponse> getCustomerByMobile(@RequestBody
+	 * GetCustomerByMobileRequest customerByMobileRequest){
+	 * 
+	 * return
+	 * ResponseEntity.ok(customerService.getCustomerByMobile(customerByMobileRequest
+	 * .getMobileNum())); }
+	 */
+	
 }
