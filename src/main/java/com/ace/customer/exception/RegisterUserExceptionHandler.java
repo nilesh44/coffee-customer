@@ -1,7 +1,10 @@
 package com.ace.customer.exception;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import com.ace.customer.vo.Error;
 
 import org.springframework.http.HttpStatus;
@@ -51,10 +54,15 @@ public class RegisterUserExceptionHandler {
 	 */
 	
 	@ExceptionHandler(MethodArgumentNotValidException.class)
-	public ResponseEntity<Error> methodArgumentNotValidExceptionHandler(MethodArgumentNotValidException ex) {
-	
-		FieldError fieldError=ex.getBindingResult().getFieldError();
-		return new ResponseEntity<Error>(Error.builder().message(fieldError.getRejectedValue()+" "+fieldError.getDefaultMessage()).build(), HttpStatus.BAD_REQUEST);
+	public ResponseEntity<Map<String, String>> methodArgumentNotValidExceptionHandler(MethodArgumentNotValidException ex) {
+		Map<String, String> errors = new HashMap();
+	    ex.getBindingResult().getAllErrors().forEach((error) -> {
+	        String fieldName = ((FieldError) error).getField();
+	        String errorMessage = error.getDefaultMessage();
+	        errors.put(fieldName, errorMessage);
+	    });
+		//FieldError fieldError=ex.getBindingResult().getFieldError();
+		return new ResponseEntity<Map<String, String>>(errors, HttpStatus.BAD_REQUEST);
 
 	}
 	
