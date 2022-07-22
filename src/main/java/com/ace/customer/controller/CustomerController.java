@@ -24,6 +24,8 @@ public class CustomerController {
 	private CustomerService customerService;
 	
 	
+	
+	
 	@PostMapping("/create")
 	public ResponseEntity<String> createCustomer(@Valid @RequestBody CreateCustomer createCustomer){
 		
@@ -42,6 +44,12 @@ public class CustomerController {
 				.getCustomerByMobile(customerByMobileRequest.getMobileNum()));
 	}
 	
+	@GetMapping("/test")
+	public ResponseEntity<String> getCustomerByMobile(){
+		
+		return ResponseEntity.ok(
+				"Running");
+	}
 	
 	
 }

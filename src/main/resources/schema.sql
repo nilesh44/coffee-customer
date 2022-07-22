@@ -15,9 +15,6 @@ first_name varchar(30),
 last_name varchar(30),
 mob_num varchar(10)
 );
-insert into customers(first_name,last_name,mob_num) values('anil','kumar','1234567898') ;
-
-select * from customers;
 
  create table IF NOT EXISTS orders(
  order_id int auto_increment primary key,

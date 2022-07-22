@@ -1,0 +1,1 @@
+insert into customers(first_name,last_name,mob_num) values('anil','kumar','1234567898') ;
