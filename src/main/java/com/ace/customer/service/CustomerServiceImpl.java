@@ -27,7 +27,7 @@ public class CustomerServiceImpl implements CustomerService {
 		
 		
 	}
-//this method is used to provide the customere by it's mobile number
+
 	@Override
 	public GetCustomerByMobileResponse getCustomerByMobile(String mobileNumber) {
 		
